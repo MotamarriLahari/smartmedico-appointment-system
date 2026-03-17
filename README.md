@@ -38,18 +38,28 @@ An intelligent full-stack web application that predicts diseases from symptoms u
 
 ## Screenshots
 
+## Screenshots
+
 ### Home Page
-![Home](screenshots/home.png)
+![Home](screenshots/home1.png)
+
+### Home Page 2
+![Home2](screenshots/home2.png)
+
+### Login
+![Login](screenshots/login.png)
 
 ### Symptom Checker
 ![Symptom Checker](screenshots/predict.png)
 
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
-
 ### Book Appointment
 ![Book](screenshots/book.png)
 
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Manage Doctors
+![Manage Doctors](screenshots/manage_doctors.png)
 ---
 
 ## Tech Stack
