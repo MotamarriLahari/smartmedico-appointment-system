@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Book Appointment{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <h4 class="mb-3 text-primary">Book an Appointment</h4>
+        <form id="bookForm" method="POST">
+
+          <div class="mb-3">
+            <label class="form-label">Select Doctor</label>
+            <select name="doctor_id" id="doctor_id" class="form-select">
+              <option value="">-- Choose a doctor --</option>
+              {% for doc in doctors %}
+                <option value="{{ doc.id }}">{{ doc.name }} — {{ doc.specialty }}</option>
+              {% endfor %}
+            </select>
+            <div class="invalid-feedback" id="doctorError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Appointment Date</label>
+            <input type="date" name="date" id="apptDate" class="form-control">
+            <div class="invalid-feedback" id="dateError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Preferred Time</label>
+            <input type="time" name="time" id="apptTime" class="form-control">
+            <div class="invalid-feedback" id="timeError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Reason for Visit</label>
+            <textarea name="reason" id="reason" class="form-control" rows="3"
+                      placeholder="Briefly describe your symptoms or concern"></textarea>
+            <div class="invalid-feedback" id="reasonError"></div>
+          </div>
+
+          <button type="submit" class="btn btn-success w-100">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

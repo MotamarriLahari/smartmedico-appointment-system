@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}No-Show Prediction{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h4 class="text-primary">No-Show Risk Prediction <span class="badge bg-secondary fs-6">Admin Only</span></h4>
+  <a href="/dashboard" class="btn btn-outline-secondary btn-sm">Back to Dashboard</a>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead class="table-primary">
+      <tr>
+        <th>Patient</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>No-Show Risk</th>
+        <th>Risk Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in results %}
+      <tr>
+        <td>{{ r.appt['patient_name'] }}</td>
+        <td>{{ r.appt['doctor_name'] }}</td>
+        <td>{{ r.appt['appointment_date'] }}</td>
+        <td>{{ r.appt['appointment_time'] }}</td>
+        <td>
+          <div class="progress" style="height: 20px; min-width: 120px;">
+            <div class="progress-bar
+              {% if r.risk >= 70 %}bg-danger
+              {% elif r.risk >= 40 %}bg-warning
+              {% else %}bg-success{% endif %}"
+              style="width: {{ r.risk }}%">
+              {{ r.risk }}%
+            </div>
+          </div>
+        </td>
+        <td>
+          {% if r.risk >= 70 %}
+            <span class="badge bg-danger">High Risk</span>
+          {% elif r.risk >= 40 %}
+            <span class="badge bg-warning text-dark">Medium Risk</span>
+          {% else %}
+            <span class="badge bg-success">Low Risk</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+      {% if not results %}
+      <tr><td colspan="6" class="text-center text-muted py-4">No pending appointments found.</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

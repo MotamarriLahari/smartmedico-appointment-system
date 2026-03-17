@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="auth-wrapper">
+  <div class="container">
+    <div class="auth-card mx-auto">
+      <div class="auth-logo">Smart<span>Medico</span></div>
+      <p class="auth-subtitle">Create your free account today</p>
+      <form id="registerForm" method="POST">
+        <div class="mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name">
+          <div class="invalid-feedback" id="nameError"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email Address</label>
+          <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
+          <div class="invalid-feedback" id="emailError"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" name="password" id="password" class="form-control" placeholder="Minimum 6 characters">
+          <div class="invalid-feedback" id="passwordError"></div>
+          <div class="progress mt-2" style="height:5px">
+            <div class="progress-bar" id="strengthBar" role="progressbar" style="width:0%"></div>
+          </div>
+          <small id="strengthText" class="text-muted"></small>
+        </div>
+        <button type="submit" class="btn-auth mt-2">Create Account</button>
+      </form>
+      <div class="auth-divider mt-4">already have an account?</div>
+      <div class="text-center mt-3">
+        <a href="/login" style="color:#00b894;font-weight:600;text-decoration:none;">Login here</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

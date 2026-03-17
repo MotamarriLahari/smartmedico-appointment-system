@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div class="hero-section">
+  <div class="container text-center position-relative" style="z-index:2">
+    <div class="hero-badge">AI-Powered Healthcare Platform</div>
+    <h1 class="mb-3">Your Health Journey<br>Starts <span>Right Here</span></h1>
+    <p class="mb-5 mx-auto" style="max-width:560px">
+      Describe your symptoms, let our AI predict your condition,
+      get matched with the right doctor, and book your appointment — all in minutes.
+    </p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a href="/predict" class="hero-btn-primary">Check My Symptoms</a>
+      <a href="/register" class="hero-btn-outline">Get Started Free</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="stats-bar">
+    <div class="row text-center align-items-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-number">3+</div>
+        <div class="stat-label">Specialist Doctors</div>
+      </div>
+      <div class="col-md-1 d-none d-md-flex justify-content-center">
+        <div class="stat-divider"></div>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Symptoms Tracked</div>
+      </div>
+      <div class="col-md-1 d-none d-md-flex justify-content-center">
+        <div class="stat-divider"></div>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="stat-number">9</div>
+        <div class="stat-label">Diseases Detected</div>
+      </div>
+      <div class="col-md-1 d-none d-md-flex justify-content-center">
+        <div class="stat-divider"></div>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">AI Availability</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5 mb-4">
+    <h2 class="section-title">Everything You Need</h2>
+    <p class="section-subtitle">From symptom check to appointment booking — all in one platform</p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-3">
+      <a href="/predict" class="feature-card">
+        <div class="feature-icon-wrap icon-blue">
+          <svg width="32" height="32" fill="#2b6cb0" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8z"/>
+          </svg>
+        </div>
+        <h5>AI Symptom Checker</h5>
+        <p>Select your symptoms and our ML model instantly predicts your condition.</p>
+        <span class="feature-tag tag-blue">Machine Learning</span>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="/book" class="feature-card">
+        <div class="feature-icon-wrap icon-green">
+          <svg width="32" height="32" fill="#276749" viewBox="0 0 16 16">
+            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+          </svg>
+        </div>
+        <h5>Book Appointment</h5>
+        <p>Choose your doctor, pick a date and time, and confirm instantly.</p>
+        <span class="feature-tag tag-green">Instant Booking</span>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="/dashboard" class="feature-card">
+        <div class="feature-icon-wrap icon-teal">
+          <svg width="32" height="32" fill="#285e61" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4z"/>
+          </svg>
+        </div>
+        <h5>My Dashboard</h5>
+        <p>Track all your appointments and manage your health records easily.</p>
+        <span class="feature-tag tag-teal">Personal View</span>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="/predict" class="feature-card">
+        <div class="feature-icon-wrap icon-purple">
+          <svg width="32" height="32" fill="#553c9a" viewBox="0 0 16 16">
+            <path d="M6 1a1 1 0 0 0-1 1v1H2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-3V2a1 1 0 0 0-1-1H6zm2 9.993V12.5a.5.5 0 0 1-1 0v-1.507A2 2 0 0 1 6 9a2 2 0 1 1 3.998-.085A2 2 0 0 1 8 10.993z"/>
+          </svg>
+        </div>
+        <h5>Doctor Recommendation</h5>
+        <p>Get matched with the right specialist based on your predicted condition.</p>
+        <span class="feature-tag tag-purple">Smart Match</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="steps-section">
+    <div class="text-center mb-4">
+      <h4>How SmartMedico Works</h4>
+      <p class="lead">4 simple steps to better healthcare</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-md-3 step-item">
+        <div class="step-circle">1</div>
+        <h6>Create Account</h6>
+        <p>Register in seconds with your name and email.</p>
+      </div>
+      <div class="col-6 col-md-3 step-item">
+        <div class="step-circle">2</div>
+        <h6>Check Symptoms</h6>
+        <p>Select your symptoms and get instant AI diagnosis.</p>
+      </div>
+      <div class="col-6 col-md-3 step-item">
+        <div class="step-circle">3</div>
+        <h6>Book Doctor</h6>
+        <p>Get matched and book your specialist appointment.</p>
+      </div>
+      <div class="col-6 col-md-3 step-item">
+        <div class="step-circle">4</div>
+        <h6>Track & Manage</h6>
+        <p>Monitor your appointments from your dashboard.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

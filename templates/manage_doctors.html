@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block title %}Manage Doctors{% endblock %}
+{% block content %}
+
+<div class="dashboard-header">
+  <div>
+    <h4>Manage Doctors</h4>
+    <p>Add, view and remove doctors from the system</p>
+  </div>
+  <a href="/dashboard" class="btn-new-appt">Back to Dashboard</a>
+</div>
+
+<div class="row g-4">
+
+  <div class="col-md-4">
+    <div class="book-card h-100">
+      <div class="book-header">
+        <h4>Add New Doctor</h4>
+        <p>Fill in the details below</p>
+      </div>
+      <form method="POST" action="/admin/doctors/add" id="addDoctorForm">
+
+        <div class="mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="name" id="docName" class="form-control"
+                 placeholder="e.g. Dr. Priya Sharma">
+          <div class="invalid-feedback" id="docNameError"></div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Specialty</label>
+          <select name="specialty" id="docSpecialty" class="form-select">
+            <option value="">-- Select specialty --</option>
+            <option>General Physician</option>
+            <option>Cardiologist</option>
+            <option>Dermatologist</option>
+            <option>Neurologist</option>
+            <option>Gynecologist</option>
+            <option>Orthopedic Surgeon</option>
+            <option>Pediatrician</option>
+            <option>Psychiatrist</option>
+            <option>Ophthalmologist</option>
+            <option>ENT Specialist</option>
+            <option>Endocrinologist</option>
+            <option>Gastroenterologist</option>
+            <option>Pulmonologist</option>
+            <option>Urologist</option>
+            <option>Oncologist</option>
+          </select>
+          <div class="invalid-feedback" id="docSpecialtyError"></div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Available Days</label>
+          <input type="text" name="available_days" class="form-control"
+                 placeholder="e.g. Mon-Wed-Fri">
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label">Available Time</label>
+          <input type="text" name="available_time" class="form-control"
+                 placeholder="e.g. 9AM-5PM">
+        </div>
+
+        <button type="submit" class="btn-book">Add Doctor</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="dashboard-table-card">
+      <div class="d-flex justify-content-between align-items-center px-4 py-3"
+           style="border-bottom:1px solid #f0f4f8">
+        <div>
+          <h6 class="mb-0 fw-600" style="color:#0a3d62;font-weight:600">All Doctors</h6>
+          <small class="text-muted">{{ doctors|length }} doctors registered</small>
+        </div>
+        <span class="badge rounded-pill px-3 py-2"
+              style="background:#e6fffa;color:#285e61;font-size:13px">
+          {{ doctors|length }} Total
+        </span>
+      </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Doctor Name</th>
+              <th>Specialty</th>
+              <th>Available Days</th>
+              <th>Time</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for doc in doctors %}
+            <tr>
+              <td style="color:#a0aec0;font-size:13px">{{ loop.index }}</td>
+              <td><strong>{{ doc['name'] }}</strong></td>
+              <td>
+                <span class="badge rounded-pill px-3 py-1"
+                      style="background:#e6fffa;color:#285e61;font-size:12px">
+                  {{ doc['specialty'] }}
+                </span>
+              </td>
+              <td style="font-size:13px;color:#4a5568">{{ doc['available_days'] }}</td>
+              <td style="font-size:13px;color:#4a5568">{{ doc['available_time'] }}</td>
+              <td>
+                <a href="/admin/doctors/delete/{{ doc['id'] }}"
+                   class="btn btn-sm btn-outline-danger rounded-pill px-3"
+                   onclick="return confirm('Remove {{ doc['name'] }} from the system?')">
+                   Remove
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+            {% if not doctors %}
+            <tr>
+              <td colspan="6" class="text-center py-4 text-muted">
+                No doctors added yet.
+              </td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

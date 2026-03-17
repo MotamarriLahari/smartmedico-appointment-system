@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Booking Confirmed{% endblock %}
+{% block content %}
+<div class="success-wrapper">
+  <div class="container">
+    <div class="success-card">
+      <div class="success-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" viewBox="0 0 16 16">
+          <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+        </svg>
+      </div>
+      <h3 class="fw-700 mb-2" style="color:#0a3d62;font-weight:700">Appointment Confirmed!</h3>
+      <p class="text-muted mb-4">Your appointment has been booked successfully. You can view and manage it from your dashboard.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="/dashboard" class="hero-btn-primary" style="padding:12px 28px;font-size:14px">Go to Dashboard</a>
+        <a href="/book" class="hero-btn-outline" style="padding:11px 28px;font-size:14px;color:#0a3d62;border-color:#0a3d62">Book Another</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
