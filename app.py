@@ -4,6 +4,8 @@ from ml_model import predict_disease, predict_noshow
 from datetime import date
 import sqlite3
 import os
+import pymysql
+pymysql.install_as_MySQLdb()
 
 app = Flask(__name__)
 app.secret_key = 'medibook_secret_123'
